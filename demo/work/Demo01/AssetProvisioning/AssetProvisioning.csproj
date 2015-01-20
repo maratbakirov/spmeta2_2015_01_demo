@@ -42,6 +42,18 @@
       <HintPath>..\..\..\..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SPMeta2">
+      <HintPath>..\packages\SPMeta2.Core.1.1.46-beta\lib\SPMeta2.dll</HintPath>
+    </Reference>
+    <Reference Include="SPMeta2.CSOM">
+      <HintPath>..\packages\SPMeta2.CSOM.Foundation.1.1.46-beta\lib\SPMeta2.CSOM.dll</HintPath>
+    </Reference>
+    <Reference Include="SPMeta2.CSOM.Behaviours">
+      <HintPath>..\packages\SPMeta2.CSOM.Foundation.1.1.46-beta\lib\SPMeta2.CSOM.Behaviours.dll</HintPath>
+    </Reference>
+    <Reference Include="SPMeta2.Syntax.Default">
+      <HintPath>..\packages\SPMeta2.Core.1.1.46-beta\lib\SPMeta2.Syntax.Default.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -57,7 +69,10 @@
     <Compile Include="TraceHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
