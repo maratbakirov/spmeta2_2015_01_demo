@@ -59,6 +59,36 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2.CSOM.Standard\SPMeta2.CSOM.Standard.csproj">
+      <Project>{5e592eaa-e21f-4bf4-8edf-6f6452dc916a}</Project>
+      <Name>SPMeta2.CSOM.Standard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2.CSOM\SPMeta2.CSOM.csproj">
+      <Project>{6f7ebf0c-7124-44d6-b9ec-302a54a19fe4}</Project>
+      <Name>SPMeta2.CSOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2.Standard\SPMeta2.Standard.csproj">
+      <Project>{f310878e-9b72-4c3c-ae5d-c60b3515e2fc}</Project>
+      <Name>SPMeta2.Standard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2.Syntax.Default\SPMeta2.Syntax.Default.csproj">
+      <Project>{6f7e5d77-0a17-4409-be8c-94389d276fa9}</Project>
+      <Name>SPMeta2.Syntax.Default</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2\SPMeta2.csproj">
+      <Project>{ee49d3fd-6180-40e6-829f-6831ff89dac6}</Project>
+      <Name>SPMeta2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model.CSOM\Model.CSOM.csproj">
+      <Project>{e6f2b521-034c-4470-8fa3-ff0755f1afe1}</Project>
+      <Name>Model.CSOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{13addd78-eb92-49fc-9cd6-aadf1adcdb3b}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

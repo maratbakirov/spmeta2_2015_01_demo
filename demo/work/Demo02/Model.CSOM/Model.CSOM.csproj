@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13ADDD78-EB92-49FC-9CD6-AADF1ADCDB3B}</ProjectGuid>
+    <ProjectGuid>{E6F2B521-034C-4470-8FA3-FF0755F1AFE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <RootNamespace>Model.CSOM</RootNamespace>
+    <AssemblyName>Model.CSOM</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,6 +42,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2.CSOM.Standard\SPMeta2.CSOM.Standard.csproj">
+      <Project>{5e592eaa-e21f-4bf4-8edf-6f6452dc916a}</Project>
+      <Name>SPMeta2.CSOM.Standard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\spmeta2\SPMeta2.CSOM\SPMeta2.CSOM.csproj">
+      <Project>{6f7ebf0c-7124-44d6-b9ec-302a54a19fe4}</Project>
+      <Name>SPMeta2.CSOM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\spmeta2\SPMeta2.Standard\SPMeta2.Standard.csproj">
       <Project>{f310878e-9b72-4c3c-ae5d-c60b3515e2fc}</Project>
       <Name>SPMeta2.Standard</Name>
