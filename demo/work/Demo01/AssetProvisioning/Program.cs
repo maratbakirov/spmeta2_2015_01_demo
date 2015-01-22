@@ -15,14 +15,13 @@ using SPMeta2.Syntax.Default;
 
 namespace AssetProvisioning
 {
-
-    public class Model
+    class Program
     {
-        public static SecurityGroupDefinition testSecurityGroup = new SecurityGroupDefinition()
+
+        public static SecurityGroupDefinition UG = new SecurityGroupDefinition()
         {
-            Name = "TestSecurityGroup",
-            Owner = "TestSecurityGroup",
-            Description = "test gropup"
+            Name = "usergroup",
+            Owner = "usergroup"
         };
 
         public static ModelNode BuildSiteModel()
@@ -31,7 +30,7 @@ namespace AssetProvisioning
 
                 site =>
                 {
-                    site.AddSecurityGroup(testSecurityGroup);
+                    site.AddSecurityGroup(UG);
                 }
                 );
             return siteModel;
@@ -54,13 +53,14 @@ namespace AssetProvisioning
                 );
             return siteModel;
         }
-    }
 
-    class Program
-    {
+
+
         [STAThread]
         static void Main(string[] args)
         {
+
+
             try
             {
 
@@ -74,7 +74,7 @@ namespace AssetProvisioning
                     TraceHelper.TraceInformation("Configuring site");
 
                     var provisioningService = new CSOMProvisionService();
-                    var siteModel = Model.BuildSiteModel();
+                    var siteModel = BuildSiteModel();
 
                     provisioningService.DeployModel(SiteModelHost.FromClientContext(ctx), siteModel);
                 }
@@ -87,7 +87,7 @@ namespace AssetProvisioning
                     TraceHelper.TraceInformation("Configuring web");
 
                     var provisioningService = new CSOMProvisionService();
-                    var webModel = Model.BuilWebModel();
+                    var webModel = BuilWebModel();
 
                     provisioningService.DeployModel(WebModelHost.FromClientContext(ctx), webModel);
 

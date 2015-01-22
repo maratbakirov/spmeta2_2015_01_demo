@@ -6,6 +6,9 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SharePoint.Client;
+using SPMeta2.CSOM.ModelHosts;
+using SPMeta2.CSOM.Services;
+using SPMeta2.CSOM.Standard.ModelHandlers.Taxonomy;
 
 namespace AssetProvisioning
 {
@@ -20,14 +23,15 @@ namespace AssetProvisioning
                 ReadSettings();
                 using (ClientContext ctx = GetAuthenticatedContext())
                 {
-                    ctx.Load(ctx.Web);
+                    ctx.Load(ctx.Web, x=>x.Url);
                     ctx.ExecuteQuery();
-                    Console.WriteLine(ctx.Web.Url);
+                    TraceHelper.TraceInformation("ctx.Url=" + ctx.Web.Url);
                 }
+
             }
             catch (Exception ex)
             {
-                TraceHelper.TraceError("an error has occured, message:{0}", ex.Message);
+                TraceHelper.TraceError("an error has occured, message:{0}", ex);
             }
 
 

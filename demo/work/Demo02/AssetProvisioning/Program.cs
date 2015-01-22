@@ -6,6 +6,10 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SharePoint.Client;
+using Model.CSOM;
+using SPMeta2.CSOM.ModelHosts;
+using SPMeta2.CSOM.Services;
+using SPMeta2.CSOM.Standard.ModelHandlers.Taxonomy;
 
 namespace AssetProvisioning
 {
@@ -20,14 +24,29 @@ namespace AssetProvisioning
                 ReadSettings();
                 using (ClientContext ctx = GetAuthenticatedContext())
                 {
-                    ctx.Load(ctx.Web);
-                    ctx.ExecuteQuery();
-                    Console.WriteLine(ctx.Web.Url);
+                    TraceHelper.TraceInformation("Configuring managed metadata");
+
+                    var provisioningService = new CSOMProvisionService();
+                    var siteModel = SiteModel.BuildTaxonomyModel();
+
+                    provisioningService.RegisterModelHandlers(typeof(TaxonomyGroupModelHandler).Assembly);
+                    provisioningService.DeployModel(SiteModelHost.FromClientContext(ctx), siteModel);
                 }
+                using (ClientContext ctx = GetAuthenticatedContext())
+                {
+                    TraceHelper.TraceInformation("Configuring fields");
+
+                    var provisioningService = new CSOMProvisionService();
+                    var siteModel = SiteModel.BuildFieldsModel();
+
+                    provisioningService.RegisterModelHandlers(typeof(TaxonomyGroupModelHandler).Assembly);
+                    provisioningService.DeployModel(SiteModelHost.FromClientContext(ctx), siteModel);
+                }
+
             }
             catch (Exception ex)
             {
-                TraceHelper.TraceError("an error has occured, message:{0}", ex.Message);
+                TraceHelper.TraceError("an error has occured, message:{0}", ex);
             }
 
 
